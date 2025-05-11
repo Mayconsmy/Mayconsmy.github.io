@@ -26,22 +26,28 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    margin-top: 60px; /* Adjust for fixed header */
 }
 
 /* Estilos do Cabeçalho */
 .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     background-color: var(--blue);
     color: white;
-    padding: 1rem;
+    padding: 0.5rem;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 2;
+    z-index: 3;
 }
 
 .header h1 {
-    margin-left: 1rem;
-    font-size: 1.2rem;
+    margin-left: 0.5rem;
+    font-size: 1rem;
 }
 
 .menu-toggle {
@@ -225,27 +231,6 @@ body {
     margin-top: 0.5rem;
 }
 
-/* Estilos do Rodapé */
-.footer {
-    background-color: var(--blue);
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    font-size: 0.9rem;
-}
-
 /* Responsividade */
 @media (min-width: 768px) {
     .container {
@@ -276,5 +261,16 @@ body {
 @media (min-width: 1024px) {
     .stats-grid {
         grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header h1 {
+        margin-bottom: 0.5rem;
     }
 }
