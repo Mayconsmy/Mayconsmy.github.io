@@ -1,0 +1,260 @@
+
+/* Estilos Gerais */
+:root {
+    --blue: #1a4b8e;
+    --soft-green: #e6f3e6;
+    --light-gray: #f2f2f2;
+    --green: #4caf50;
+    --yellow: #ffd54f;
+    --red: #f44336;
+    --text: #333333;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: var(--light-gray);
+    color: var(--text);
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Estilos do Cabeçalho */
+.header {
+    background-color: var(--blue);
+    color: white;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+.header h1 {
+    margin-left: 1rem;
+    font-size: 1.2rem;
+}
+
+.menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+/* Estilos da Barra Lateral */
+.sidebar {
+    background-color: white;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding-top: 60px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(-100%);
+    z-index: 1;
+    overflow-y: auto;
+}
+
+.sidebar.active {
+    transform: translateX(0);
+}
+
+.sidebar-header {
+    padding: 1rem;
+}
+
+.sidebar-header h2 {
+    color: var(--blue);
+    font-size: 1.2rem;
+}
+
+.sidebar nav ul {
+    list-style: none;
+}
+
+.sidebar nav li {
+    margin-bottom: 0.5rem;
+}
+
+.sidebar nav a {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 0.25rem;
+    margin: 0 0.5rem;
+    transition: background-color 0.2s ease;
+}
+
+.sidebar nav a i {
+    margin-right: 0.75rem;
+    width: 20px;
+    text-align: center;
+}
+
+.sidebar nav a:hover {
+    background-color: var(--soft-green);
+    color: var(--blue);
+}
+
+.sidebar nav a.active {
+    background-color: var(--soft-green);
+    color: var(--blue);
+    font-weight: bold;
+}
+
+/* Estilos da Área de Conteúdo */
+.content {
+    flex: 1;
+    padding: 1rem;
+    margin-top: 60px;
+    overflow-y: auto;
+}
+
+/* Estilos dos Cartões de Estatística */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.stat-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card h3 {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 0.5rem;
+}
+
+.stat-card p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.stat-card .trend {
+    font-size: 0.8rem;
+    color: var(--green);
+}
+
+.stat-card .trend.negative {
+    color: var(--red);
+}
+
+/* Estilos da Tabela de Produtos */
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-table th, .product-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.product-table th {
+    background-color: #f8f8f8;
+    font-weight: bold;
+}
+
+.product-table .status-normal {
+    color: var(--green);
+}
+
+.product-table .status-warning {
+    color: var(--yellow);
+}
+
+.product-table .status-critical {
+    color: var(--red);
+}
+
+/* Estilos das Seções de Ambiente */
+.sector-section {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+.sector-section h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+}
+
+.sector-section .data-item {
+    margin-bottom: 0.5rem;
+}
+
+.sector-section .data-item span {
+    font-weight: bold;
+}
+
+.sector-section .alert {
+    background-color: var(--red);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    margin-top: 0.5rem;
+}
+
+/* Responsividade */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+    }
+
+    .sidebar {
+        transform: translateX(0);
+        position: static;
+        height: 100vh;
+        padding-top: 0;
+    }
+
+    .content {
+        margin-top: 0;
+        margin-left: 0;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
