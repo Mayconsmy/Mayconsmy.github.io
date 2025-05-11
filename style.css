@@ -1,4 +1,3 @@
-
 /* Estilos Gerais */
 :root {
     --blue: #1a4b8e;
@@ -224,6 +223,27 @@ body {
     padding: 0.5rem;
     border-radius: 0.3rem;
     margin-top: 0.5rem;
+}
+
+/* Estilos do Rodapé */
+.footer {
+    background-color: var(--blue);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 0.9rem;
 }
 
 /* Responsividade */
